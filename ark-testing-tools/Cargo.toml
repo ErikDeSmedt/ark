@@ -1,0 +1,14 @@
+[package]
+name = "ark-testing-tools"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+arkd = { path = "../arkd"}
+ark-noah = { path = "../noah"}
+bitcoind = "=0.36.0"
+anyhow.workspace=true
+rand.workspace=true
+bitcoin.workspace=true
+
+
