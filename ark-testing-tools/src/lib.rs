@@ -1,5 +1,11 @@
+mod arkd;
 mod constants;
+pub mod error;
+pub mod runner;
 mod util;
+
+#[macro_use]
+extern crate log;
 
 use bitcoind::BitcoinD;
 use std::fs;
