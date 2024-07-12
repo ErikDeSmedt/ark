@@ -1,5 +1,6 @@
 mod arkd;
 mod constants;
+pub mod command;
 pub mod error;
 pub mod runner;
 mod util;
@@ -18,6 +19,7 @@ pub struct TestContext {
 	name: String,
 	base_path: PathBuf,
 	bitcoind: Vec<Arc<bitcoind::BitcoinD>>,
+	arkd: Vec<Arc<arkd::ArkD>>
 }
 
 impl TestContext {
@@ -48,6 +50,12 @@ impl TestContext {
 		let arc_bitcoind = Arc::new(BitcoinD::with_conf(exepath, &conf).unwrap());
 		self.bitcoind.push(arc_bitcoind.clone());
 		return arc_bitcoind;
+	}
+
+	pub fn arkd(bitcoind : bitcoind::BitcoinD) -> Arc<arkd::ArkD> {
+		bitcoind.bitcoin_url;
+		todo!("Implement")
+
 	}
 }
 
