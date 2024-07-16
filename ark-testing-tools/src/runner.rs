@@ -1,5 +1,5 @@
 
-use std::io::{BufRead};
+use std::io::BufRead;
 use std::sync::{Arc, Mutex};
 use std::{fmt, io, ops, process, thread, time};
 

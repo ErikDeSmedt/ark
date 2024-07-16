@@ -136,6 +136,7 @@ dependencies = [
  "arkd",
  "bitcoin",
  "bitcoind",
+ "env_logger",
  "log",
  "rand",
 ]

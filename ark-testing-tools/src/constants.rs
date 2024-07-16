@@ -1,1 +1,3 @@
 pub const ENV_LEAVE_INTACT : &str = "LEAVE_INTACT";
+pub const ENV_ARKD_EXECUTABLE: &str = "ARKD_EXECUTABLE";
+

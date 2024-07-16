@@ -11,5 +11,6 @@ anyhow.workspace=true
 rand.workspace=true
 bitcoin.workspace=true
 log.workspace = true
+env_logger.workspace = true
 
 
