@@ -54,10 +54,30 @@ struct CreateOpts {
 	vtxo_exit_delta: Option<u16>
 }
 
+#[derive(clap::Args)]
+struct ConfigOpts {
+	#[arg(long)]
+	datadir: PathBuf,
+	#[arg(long)]
+	bitcoind_url: Option<String>,
+	#[arg(long)]
+	bitcoind_cookie: Option<String>,
+	#[arg(long)]
+	public_rpc_address: Option<String>,
+	#[arg(long)]
+	public_rpc_tls_cert_path: Option<PathBuf>,
+	#[arg(long)]
+	public_rpc_tls_key_path: Option<PathBuf>,
+	#[arg(long)]
+	admin_rpc_address: Option<String>,
+}
+
 #[derive(clap::Subcommand)]
 enum Command {
 	#[command()]
 	Create(CreateOpts),
+	#[command()]
+	SetConfig(ConfigOpts),
 	#[command()]
 	Start,
 	#[command()]
@@ -133,6 +153,12 @@ async fn inner_main() -> anyhow::Result<()> {
 			let cfg = config_from_create_opts(opts)?;
 
 			App::create(&datadir, cfg)?;
+		},
+		Command::SetConfig(cfg) => {
+
+			if cfg.bitcoind_url.is_some() {
+
+			}
 		},
 		Command::Start => {
 			let mut app = App::open(&cli.datadir.context("need datadir")?).context("server init")?;
