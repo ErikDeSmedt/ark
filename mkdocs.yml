@@ -12,3 +12,4 @@ extra:
     vtxo_expiry_delta: 11520
     vtxo_expire_delta_description: 28 days
 
+
