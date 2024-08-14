@@ -1,6 +1,6 @@
-# The ark protocol
+# The Ark protocol
 
-The Ark protocol is a second layer on the bitcoin network. For clients the ark-protocol
+The Ark protocol is a second layer on the bitcoin network. It
 offers cheap on-boarding, low and predictable fees and fast transaction confirmation.
 The protocol works on bitcoin today and doesn't require any new op-codes or changes in consensus
 rules.
@@ -13,7 +13,7 @@ called a VTXO.
 
 A client that owns a VTXO can perform a unilateral exit. This uniltateral exit is completely
 permissionless and can only be triggered by the client. At any point in time the client is in full
-control of their funds. To claim a VTXO a client pay on-chain fees and broadcast their VTXO.
+control of their funds. To claim a VTXO a client pays on-chain fees and broadcasts their VTXO.
 
 A client can also off-board by performing a cooperative exit which is co-signed by the ASP and has a
 much smaller on-chain footprint. Inside the Ark, they can make payments by swapping their VTXOs for
@@ -35,7 +35,7 @@ In this chapter we'll explain how UTXO-sharing is achieved in the Ark protocol.
 To keep thing simple we start with an ASP that wants to perform mass pay-out 
 to a group of clients. A similar set-up will happen every round.
 
-On approach is that the ASP could create single transaction which has one taproot-output for each
+One approach is that the ASP could create single transaction which has one taproot-output for each
 client.  This means that each output adds `43 vbytes` to the transaction size or a cost of `430 sat`
 assuming `10 sat/vbyte`.
 
@@ -81,7 +81,7 @@ In the next section we'll explain how clients can avoid paying on-chain fees
 by swapping their VTXOs.
 
 
-## Swap VTXO's attomically
+## Swap VTXOs atomically
 
 Swapping a VTXO doesn't have an onchain footprint and is much cheaper than a
 unilateral exit. The ASP provides the swaps in exchange for a small fee.
@@ -125,7 +125,7 @@ exit on a forfeited VTXO would just waste fees. The exit path for the client is 
 ASP can claim the funds by broadcasting the forfeit transaction immediately. 
 
 
-![Transaction tree with VTXO'](./img/transaction_tree_vtxo.png)
+![Transaction tree with VTXOs](./img/transaction_tree_vtxo.png)
 
 ### Connectors make swap atomic
 
@@ -139,14 +139,14 @@ It is fully safe for the client to sign a forfeit transaction with a connector. 
 transaction is only valid if the round makes it on-chain.
 
 
-![Transaction tree with VTXO'](./img/forfeit.png)
+![Transaction showing a forfeit](./img/forfeit.png)
 
 ### Stages of a round
 
 The round has the following phases
 
 1. ASP announces the start of the round.
-2. All clients tell what VTXO's they want to swap.
+2. All clients tell what VTXOs they want to swap.
 3. The ASP constructs the transaction tree and forfeit transactions.
 4. The clients sign the transaction tree and all forfeit transactions.
 5. The ASP funds the round and ensures it is confirmed on-chain.
@@ -164,7 +164,7 @@ will require 6 confirmations before it will allow the VTXO to participate in a r
 This protetects the server from double-spends.
 
 
-![Transaction tree with VTXO'](./img/onboard.png)
+![Paying into an onboard transaction](./img/onboard.png)
 
 ## Expiry dates allow the ASP to reclaim funds
 
