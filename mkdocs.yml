@@ -1,1 +1,15 @@
-site_name: My Docs
+site_name: Ark
+plugins:
+  - search
+  - macros
+extra:
+  bitcoin:
+    taproot_output_size: "43 vbytes"
+  ark:
+    # The number of blocks 
+    vtxo_exit_delta: 60 # 10*6
+    vtxo_exit_delta_description: 6 hours
+    vtxo_expiry_delta: 11520
+    vtxo_expire_delta_description: 28 days
+
+
