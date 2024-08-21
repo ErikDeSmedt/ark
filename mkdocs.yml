@@ -1,4 +1,12 @@
 site_name: Ark
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Introduction: getting-started/01_introduction.md
+      - Compile from Source: getting-started/02_compile_from_source.md
+      - Regtest Demo: getting-started/03_regtest_demo.md
+  - Protocol:  protocol/intro.md
+
 plugins:
   - search
   - macros
